@@ -1,0 +1,16 @@
+---
+
+galaxy_info:
+  role_name: jasmin.awx
+
+  author: Matt Pryor
+  company: Centre for Environmental Data Analysis (CEDA)
+
+  desecription: >
+    Deploys AWX, the open-source upstream of Ansible Tower,
+    behind an Nginx proxy.
+
+  min_ansible_version: 2.7
+
+
+dependencies: []
