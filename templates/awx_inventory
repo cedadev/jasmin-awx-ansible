@@ -29,3 +29,5 @@ secret_key={{ ansible_local.awx_secret_key }}
 # AWX project data folder. If you need access to the location where AWX stores the projects
 # it manages from the docker host, you can set this to turn it into a volume for the container.
 project_data_dir=/var/lib/awx/projects
+
+awx_web_hostname=awx_web

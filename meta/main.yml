@@ -7,8 +7,7 @@ galaxy_info:
   company: Centre for Environmental Data Analysis (CEDA)
 
   desecription: >
-    Deploys AWX, the open-source upstream of Ansible Tower,
-    behind an Nginx proxy.
+    Deploys AWX, the open-source upstream of Ansible Tower, behind an Nginx proxy.
 
   min_ansible_version: 2.7
 
