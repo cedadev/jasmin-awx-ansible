@@ -4,6 +4,8 @@ localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env pyth
 dockerhub_base=ansible
 
 # Common Docker parameters
+awx_task_hostname=awx
+awx_web_hostname=awxweb
 postgres_data_dir=/var/lib/awx/postgres
 host_port=127.0.0.1:8080
 
@@ -18,8 +20,8 @@ rabbitmq_erlang_cookie=cookiemonster
 
 # This will create or update a default admin (superuser) account in AWX, if not provided
 # then these default values are used
-default_admin_user=admin
-default_admin_password="{{ awx_admin_password }}"
+admin_user=admin
+admin_password="{{ awx_admin_password }}"
 
 # AWX Secret key
 # It's *very* important that this stay the same between upgrades or you will lose the ability to decrypt
@@ -30,5 +32,5 @@ secret_key={{ ansible_local.awx_secret_key }}
 # it manages from the docker host, you can set this to turn it into a volume for the container.
 project_data_dir=/var/lib/awx/projects
 
-awx_web_hostname=awx_web
-awx_task_hostname=awx_task
+# Don't preload with demo data
+create_preload_data=False
