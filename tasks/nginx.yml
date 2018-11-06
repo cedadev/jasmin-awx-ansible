@@ -83,3 +83,6 @@
   with_items:
     - http
     - https
+
+# Make sure the Nginx handler is called if required
+- meta: flush_handlers
