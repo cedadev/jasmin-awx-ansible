@@ -7,11 +7,6 @@
   notify:
     - Restart nginx
 
-- name: Ensure nginx starts at boot time
-  service:
-    name: nginx
-    enabled: yes
-
 - name: Create nginx SSL directory
   file:
     path: /etc/nginx/ssl
@@ -74,6 +69,12 @@
   notify:
     - Restart nginx
 
+- name: Ensure nginx is started and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
 - name: Allow external HTTP(S) traffic
   firewalld:
     service: "{{ item }}"
@@ -83,6 +84,3 @@
   with_items:
     - http
     - https
-
-# Make sure the Nginx handler is called if required
-- meta: flush_handlers
