@@ -76,5 +76,7 @@
       value: admin
     - name: password
       value: "{{ awx_admin_password }}"
+    - name: verify_ssl
+      value: "false"
   loop_control:
     label: "{{ item.name }}"
