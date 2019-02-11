@@ -1,5 +1,9 @@
 ---
 
+- name: Ensure EPEL repository is enabled
+  yum:
+    name: epel-release
+
 - name: Install yum dependencies
   yum:
     name:
