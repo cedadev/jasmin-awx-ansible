@@ -74,6 +74,12 @@
     name: nginx
     state: started
     enabled: yes
+    
+- name: Ensure firewalld is started
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
 
 - name: Allow external HTTP(S) traffic
   firewalld:
