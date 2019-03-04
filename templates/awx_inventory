@@ -9,6 +9,9 @@ awx_web_hostname=awxweb
 postgres_data_dir=/var/lib/awx/postgres
 host_port=127.0.0.1:8080
 
+# Use the hosts trusted CA certificates
+ca_trust_dir=/etc/pki/ca-trust/source/anchors
+
 pg_username=awx
 pg_password="{{ ansible_local.awx_postgres_password }}"
 pg_database=awx
