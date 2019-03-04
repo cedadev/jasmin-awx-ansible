@@ -36,4 +36,4 @@ secret_key={{ ansible_local.awx_secret_key }}
 project_data_dir=/var/lib/awx/projects
 
 # Don't preload with demo data
-create_preload_data=False
+create_preload_data=no
