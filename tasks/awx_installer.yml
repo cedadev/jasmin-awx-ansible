@@ -10,6 +10,7 @@
       - git
       - ansible
       - docker
+      - python-pip
 
 - name: Install pip dependencies
   pip:
