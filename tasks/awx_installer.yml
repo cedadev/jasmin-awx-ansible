@@ -10,7 +10,13 @@
       - git
       - ansible
       - docker
-      - python-docker-py
+      - python-pip
+
+- name: Install pip dependencies
+  pip:
+    name:
+      - docker
+      - docker-compose
 
 - name: Ensure docker is started
   service:
