@@ -69,11 +69,6 @@
   args:
     chdir: /opt/awx/installer
 
-- name: Install pip for system Python
-  yum:
-    name: python-pip
-    state: latest
-
 - name: Install Tower CLI
   pip:
     name: ansible-tower-cli
