@@ -1,6 +1,6 @@
 awx_version: "4.0.0"
 
-enable_epel: true
+enable_epel: false
 
 configure_firewall: false
 

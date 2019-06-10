@@ -75,20 +75,20 @@
     state: started
     enabled: yes
 
-- name: Ensure firewalld is started
-  service:
-    name: firewalld
-    state: started
-    enabled: yes
-  when: configure_firewall
+- block:
+    - name: Ensure firewalld is started
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
 
-- name: Allow external HTTP(S) traffic
-  firewalld:
-    service: "{{ item }}"
-    permanent: true
-    immediate: true
-    state: enabled
-  with_items:
-    - http
-    - https
+    - name: Allow external HTTP(S) traffic
+      firewalld:
+        service: "{{ item }}"
+        permanent: true
+        immediate: true
+        state: enabled
+      with_items:
+        - http
+        - https
   when: configure_firewall
