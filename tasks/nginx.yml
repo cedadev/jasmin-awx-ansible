@@ -91,4 +91,4 @@
       with_items:
         - http
         - https
-  when: configure_firewall
+  when: configure_firewall | bool

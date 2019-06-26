@@ -3,7 +3,7 @@
 - name: Ensure EPEL repository is enabled
   yum:
     name: epel-release
-  when: enable_epel
+  when: enable_epel | bool
 
 - name: Install yum dependencies
   yum:
