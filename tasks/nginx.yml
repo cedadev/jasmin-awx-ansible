@@ -15,7 +15,7 @@
 - name: Generate self-signed SSL certificate
   command: >
     openssl req -new -nodes -x509 -days 3650 -extensions v3_ca
-      -subj "/C=GB/ST=Oxfordshire/L=Didcot/O=JASMIN/OU=Cluster-as-a-Service/CN=*"
+      -subj "{{ self_signed_certificate_cn }}"
       -keyout /etc/nginx/ssl/awx.key
       -out /etc/nginx/ssl/awx.crt
   args:
@@ -74,19 +74,21 @@
     name: nginx
     state: started
     enabled: yes
-    
-- name: Ensure firewalld is started
-  service:
-    name: firewalld
-    state: started
-    enabled: yes
 
-- name: Allow external HTTP(S) traffic
-  firewalld:
-    service: "{{ item }}"
-    permanent: true
-    immediate: true
-    state: enabled
-  with_items:
-    - http
-    - https
+- block:
+    - name: Ensure firewalld is started
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+
+    - name: Allow external HTTP(S) traffic
+      firewalld:
+        service: "{{ item }}"
+        permanent: true
+        immediate: true
+        state: enabled
+      with_items:
+        - http
+        - https
+  when: configure_firewall | bool

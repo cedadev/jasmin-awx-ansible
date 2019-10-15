@@ -1,1 +1,7 @@
-awx_version: "4.0.0"
+awx_version: "7.0.0"
+
+enable_epel: false
+
+configure_firewall: false
+
+self_signed_certificate_cn: "/C=GB/ST=Oxfordshire/L=Didcot/O=JASMIN/OU=Cluster-as-a-Service/CN=*"

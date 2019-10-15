@@ -8,6 +8,8 @@ awx_task_hostname=awx
 awx_web_hostname=awxweb
 postgres_data_dir=/var/lib/awx/postgres
 host_port=127.0.0.1:8080
+host_port_ssl=127.0.0.1:8443
+docker_compose_dir=/tmp/awxcompose
 
 # Use the hosts trusted CA certificates
 ca_trust_dir=/etc/pki/ca-trust/source/anchors
@@ -36,4 +38,4 @@ secret_key={{ ansible_local.awx_secret_key }}
 project_data_dir=/var/lib/awx/projects
 
 # Don't preload with demo data
-create_preload_data=no
+create_preload_data=False

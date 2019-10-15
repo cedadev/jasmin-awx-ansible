@@ -3,6 +3,7 @@
 - name: Ensure EPEL repository is enabled
   yum:
     name: epel-release
+  when: enable_epel | bool
 
 - name: Install yum dependencies
   yum:
@@ -69,11 +70,6 @@
   args:
     chdir: /opt/awx/installer
 
-- name: Install pip for system Python
-  yum:
-    name: python-pip
-    state: latest
-
 - name: Install Tower CLI
   pip:
     name: ansible-tower-cli
@@ -82,6 +78,8 @@
 - name: Set Tower CLI config options
   command: tower-cli config {{ item.name }} {{ item.value | quote }}
   with_items:
+    - name: host
+      value: http://127.0.0.1:8080
     - name: username
       value: admin
     - name: password
